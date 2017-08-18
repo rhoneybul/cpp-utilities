@@ -9,4 +9,10 @@
 /Users/roberttimothyhoneybul/cplusplus/rthutils/src/utils.cpp
 iostream
 -
+string
+-
+vector
+-
+math.h
+-
 
