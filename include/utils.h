@@ -5,6 +5,8 @@
 
 using namespace std;
 
+void hello();
+
 bool inVector(string find, vector<string> vec);
 
 vector<string> stringSplit(string text, string delim);
