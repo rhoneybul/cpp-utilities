@@ -10,6 +10,6 @@ include_directories(include)
 
 file(GLOB SOURCES "src/*.cpp")
 
-add_library(testUtils SHARED ${SOURCES})
+add_library(rthutils SHARED ${SOURCES})
 
-install(TARGETS testUtils DESTINATION /usr/lib)
+install(TARGETS rthutils DESTINATION /usr/lib)

@@ -1,4 +1,4 @@
-# Install script for directory: /Users/roberttimothyhoneybul/cplusplus/rthutils
+# Install script for directory: /home/honeybul/coding/cpp/rthutils
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,20 +27,31 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
+# Install shared libraries without execute permission?
+if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
+  set(CMAKE_INSTALL_SO_NO_EXE "1")
+endif()
+
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  if(EXISTS "$ENV{DESTDIR}/usr/lib/librthutils.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/usr/lib/librthutils.so")
+    file(RPATH_CHECK
+         FILE "$ENV{DESTDIR}/usr/lib/librthutils.so"
+         RPATH "")
+  endif()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/usr/lib/libtestUtils.dylib")
+   "/usr/lib/librthutils.so")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/usr/lib" TYPE SHARED_LIBRARY FILES "/Users/roberttimothyhoneybul/cplusplus/rthutils/build/libtestUtils.dylib")
-  if(EXISTS "$ENV{DESTDIR}/usr/lib/libtestUtils.dylib" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/usr/lib/libtestUtils.dylib")
+file(INSTALL DESTINATION "/usr/lib" TYPE SHARED_LIBRARY FILES "/home/honeybul/coding/cpp/rthutils/build/librthutils.so")
+  if(EXISTS "$ENV{DESTDIR}/usr/lib/librthutils.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/usr/lib/librthutils.so")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip" "$ENV{DESTDIR}/usr/lib/libtestUtils.dylib")
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/usr/lib/librthutils.so")
     endif()
   endif()
 endif()
@@ -53,5 +64,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/roberttimothyhoneybul/cplusplus/rthutils/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/honeybul/coding/cpp/rthutils/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

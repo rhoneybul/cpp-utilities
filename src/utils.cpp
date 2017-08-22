@@ -9,15 +9,6 @@ void hello() {
 	cout << "Successfully loaded RTH Utilities" << endl;
 }
 
-template<typename T>
-void printVector(vector<T> vec) {
-	cout << "[";
-	for(auto val : vec) {
-		cout << val << ", ";
-	}
-	cout << "]" << endl;
-}
-
 bool inVector(string find, vector<string> vec) {
     bool is_in = false;
     int jj = 0;
